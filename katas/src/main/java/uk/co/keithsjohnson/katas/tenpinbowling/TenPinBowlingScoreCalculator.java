@@ -35,15 +35,20 @@ public class TenPinBowlingScoreCalculator {
 	}
 
 	private int calculateSpare(Round round, Round nextRound) {
+		if (round.isLastRound()) {
+			return round.score() + round.getThird();
+		}
 		return (nextRound == null ? 0 : round.score() + nextRound.getFirst());
 	}
 
 	private int calculateStrike(Round round, Round nextRound, Round strikeRound) {
-		if (nextRound == null || (nextRound.isStrike() && strikeRound == null)) {
+		if (round.isLastRound()) {
+			return round.score() + round.getThird();
+		}
+		if (nextRound == null || (!nextRound.isLastRound() && nextRound.isStrike() && strikeRound == null)) {
 			return 0;
 		}
-
-		if (nextRound.isNormal() || nextRound.isSpare()) {
+		if (nextRound.isNormal() || nextRound.isSpare() || nextRound.isLastRound()) {
 			return round.score() + nextRound.score();
 		}
 		return round.score() + nextRound.score() + strikeRound.getFirst();
