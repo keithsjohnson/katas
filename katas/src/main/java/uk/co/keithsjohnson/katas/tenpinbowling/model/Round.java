@@ -24,10 +24,6 @@ public class Round {
 		this(first, second, third, true);
 	}
 
-	public Round(int first, boolean lastRound) {
-		this(first, 0, 0, lastRound);
-	}
-
 	private Round(int first, int second, int third, boolean lastRound) {
 		this.first = first;
 		this.second = second;

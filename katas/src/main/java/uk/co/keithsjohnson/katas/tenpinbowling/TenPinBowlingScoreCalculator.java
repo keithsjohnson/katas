@@ -8,7 +8,7 @@ public class TenPinBowlingScoreCalculator {
 		int score = 0;
 		for (int roundIndex = 0; roundIndex < 10; roundIndex++) {
 			if (rounds[roundIndex] != null) {
-				score += calculateRoundScore(rounds[roundIndex], (roundIndex) == 9 ? null : rounds[roundIndex + 1], (roundIndex) > 7 ? null
+				score += calculateRoundScore(rounds[roundIndex], (roundIndex) >= 9 ? null : rounds[roundIndex + 1], (roundIndex) >= 8 ? null
 				        : rounds[roundIndex + 2]);
 				System.out.println("score[" + roundIndex + "]=" + score);
 			}
@@ -24,10 +24,7 @@ public class TenPinBowlingScoreCalculator {
 		if (round.isSpare()) {
 			return calculateSpare(round, nextRound);
 		}
-		if (round.isStrike()) {
-			return calculateStrike(round, nextRound, strikeRound);
-		}
-		return 0;
+		return calculateStrike(round, nextRound, strikeRound);
 	}
 
 	private int calculateNormal(Round round) {

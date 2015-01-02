@@ -248,7 +248,30 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	}
 
 	@Test
-	public void should14CalculateScoreFor10StrikeRounds() {
+	public void should14CalculateScoreFor9StrikeRoundsAndASpare() {
+		System.out.println("should14CalculateScoreFor9StrikeRoundsAndASpare");
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new Round(1, 9);
+		rounds[1] = new Round(1, 9);
+		rounds[2] = new Round(1, 9);
+		rounds[3] = new Round(1, 9);
+		rounds[4] = new Round(1, 9);
+		rounds[5] = new Round(1, 9);
+		rounds[6] = new Round(1, 9);
+		rounds[7] = new Round(1, 9);
+		rounds[8] = new Round(1, 9);
+		rounds[9] = new Round(1, 9, 1);
+
+		// When
+		int score = testSubject.score(rounds);
+
+		// Then
+		assertEquals(110, score);
+	}
+
+	@Test
+	public void should14CalculateScoreFor10Rounds() {
 		System.out.println("should14CalculateScoreFor10StrikeRounds");
 
 		Round[] rounds = new Round[10];
@@ -269,4 +292,28 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		// Then
 		assertEquals(110, score);
 	}
+
+	@Test
+	public void should15CalculateScoreFor9StrikeRounds() {
+		System.out.println("should15CalculateScoreFor9StrikeRounds");
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new Round(10);
+		rounds[1] = new Round(10);
+		rounds[2] = new Round(10);
+		rounds[3] = new Round(10);
+		rounds[4] = new Round(10);
+		rounds[5] = new Round(10);
+		rounds[6] = new Round(10);
+		rounds[7] = new Round(10);
+		rounds[8] = new Round(10);
+		rounds[9] = new Round(1, 8);
+
+		// When
+		int score = testSubject.score(rounds);
+
+		// Then
+		assertEquals(259, score);
+	}
+
 }
