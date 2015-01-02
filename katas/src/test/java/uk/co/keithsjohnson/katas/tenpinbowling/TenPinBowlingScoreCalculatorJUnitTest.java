@@ -79,12 +79,56 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	}
 
 	@Test
-	@Ignore
-	public void shouldCalculateScoreForTwoRoundsWithSpare() {
+	public void shouldCalculateScoreForFirstRoundWithSpare() {
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new Round(1, 9);
+
+		// When
+		int score = testSubject.score(rounds);
+
+		// Then
+		assertEquals(0, score);
+	}
+
+	@Test
+	public void shouldCalculateScoreForTwoRoundsWithFirstRoundSpare() {
 
 		Round[] rounds = new Round[10];
 		rounds[0] = new Round(1, 9);
 		rounds[1] = new Round(1, 1);
+
+		// When
+		int score = testSubject.score(rounds);
+
+		// Then
+		assertEquals(13, score);
+	}
+
+	@Test
+	public void shouldCalculateScoreForThreeRoundsWithFirstRoundSpareAndThirdRoundStrike() {
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new Round(1, 9);
+		rounds[1] = new Round(1, 1);
+		rounds[2] = new Round(10);
+
+		// When
+		int score = testSubject.score(rounds);
+
+		// Then
+		assertEquals(13, score);
+	}
+
+	@Test
+	@Ignore
+	public void shouldCalculateScoreForFourRoundsWithThirdRoundStrike() {
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new Round(1, 9);
+		rounds[1] = new Round(1, 1);
+		rounds[2] = new Round(10);
+		rounds[2] = new Round(1, 1);
 
 		// When
 		int score = testSubject.score(rounds);

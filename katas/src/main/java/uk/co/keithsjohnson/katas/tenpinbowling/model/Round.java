@@ -10,6 +10,11 @@ public class Round {
 		this.second = second;
 	}
 
+	public Round(int first) {
+		this.first = first;
+		this.second = 0;
+	}
+
 	public int getFirst() {
 		return first;
 	}
