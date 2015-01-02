@@ -8,35 +8,44 @@ public class TenPinBowlingScoreCalculator {
 		int score = 0;
 		for (int roundIndex = 0; roundIndex < 10; roundIndex++) {
 			if (rounds[roundIndex] != null) {
-				score += calculateRoundScore(rounds[roundIndex], (roundIndex) == 9 ? null : rounds[roundIndex + 1]);
+				score += calculateRoundScore(rounds[roundIndex], (roundIndex) == 9 ? null : rounds[roundIndex + 1], (roundIndex) > 7 ? null
+				        : rounds[roundIndex + 2]);
+				System.out.println("score[" + roundIndex + "]=" + score);
 			}
 		}
+		System.out.println("--------------------------");
 		return score;
 	}
 
-	private int calculateRoundScore(Round round, Round nextRound) {
-		int roundScore = 0;
+	private int calculateRoundScore(Round round, Round nextRound, Round strikeRound) {
+		if (round.isNormal()) {
+			return calculateNormal(round);
+		}
+		if (round.isSpare()) {
+			return calculateSpare(round, nextRound);
+		}
+		if (round.isStrike()) {
+			return calculateStrike(round, nextRound, strikeRound);
+		}
+		return 0;
+	}
 
-		if (nextRound == null) {
-			// No Spare or Strike
-			roundScore += round.getFirst();
-			roundScore += round.getSecond();
+	private int calculateNormal(Round round) {
+		return round.score();
+	}
 
-			if (roundScore < 10) {
-				return roundScore;
-			} else {
-				return 0;
-			}
+	private int calculateSpare(Round round, Round nextRound) {
+		return (nextRound == null ? 0 : round.score() + nextRound.getFirst());
+	}
 
+	private int calculateStrike(Round round, Round nextRound, Round strikeRound) {
+		if (nextRound == null || (nextRound.isStrike() && strikeRound == null)) {
+			return 0;
 		}
 
-		// Spare or Strike
-		roundScore += round.getFirst();
-		roundScore += round.getSecond();
-		if (roundScore == 10) {
-			return roundScore += nextRound.getFirst();
+		if (nextRound.isNormal() || nextRound.isSpare()) {
+			return round.score() + nextRound.score();
 		}
-
-		return roundScore;
+		return round.score() + nextRound.score() + strikeRound.getFirst();
 	}
 }
