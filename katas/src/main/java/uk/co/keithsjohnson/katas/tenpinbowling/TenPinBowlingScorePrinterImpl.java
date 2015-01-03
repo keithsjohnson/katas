@@ -1,10 +1,10 @@
 package uk.co.keithsjohnson.katas.tenpinbowling;
 
-import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
+import uk.co.keithsjohnson.katas.tenpinbowling.model.RoundImpl;
 
-public class TenPinBowlingScorePrinter {
+public class TenPinBowlingScorePrinterImpl {
 
-	public void printScore(Round[] rounds, int[] results) {
+	public void printScore(RoundImpl[] rounds, int[] results) {
 		System.out.println("--------------------------");
 		StringBuilder roundsLineBuilder = new StringBuilder(100);
 		StringBuilder linesBuilder = new StringBuilder(100);

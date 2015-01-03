@@ -6,12 +6,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class RoundJUnitTest {
+public class RoundImplJUnitTest {
 
 	@Test
 	public void shouldCreateNormalRound() {
 		// Given
-		Round testSubject = new Round(1, 2);
+		RoundImpl testSubject = new RoundImpl(1, 2);
 
 		// Then
 		assertEquals(1, testSubject.getFirst());
@@ -27,7 +27,7 @@ public class RoundJUnitTest {
 	@Test
 	public void shouldCreateSpareRound() {
 		// Given
-		Round testSubject = new Round(1, 9);
+		RoundImpl testSubject = new RoundImpl(1, 9);
 
 		// Then
 		assertEquals(1, testSubject.getFirst());
@@ -43,7 +43,7 @@ public class RoundJUnitTest {
 	@Test
 	public void shouldCreateStrikeRound() {
 		// Given
-		Round testSubject = new Round(10);
+		RoundImpl testSubject = new RoundImpl(10);
 
 		// Then
 		assertEquals(10, testSubject.getFirst());
@@ -60,7 +60,7 @@ public class RoundJUnitTest {
 	@Test
 	public void shouldCreateStrikeLastRound() {
 		// Given
-		Round testSubject = new Round(10, 10, 10);
+		RoundImpl testSubject = new RoundImpl(10, 10, 10);
 
 		// Then
 		assertEquals(10, testSubject.getFirst());
@@ -76,7 +76,7 @@ public class RoundJUnitTest {
 	@Test
 	public void shouldCallToString() {
 		// Given
-		Round testSubject = new Round(10, 10, 10);
+		RoundImpl testSubject = new RoundImpl(10, 10, 10);
 
 		// Then
 		System.out.println(testSubject.toString());

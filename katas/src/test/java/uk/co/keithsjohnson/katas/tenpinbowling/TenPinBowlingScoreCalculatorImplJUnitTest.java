@@ -5,22 +5,22 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
+import uk.co.keithsjohnson.katas.tenpinbowling.model.RoundImpl;
 
-public class TenPinBowlingScoreCalculatorJUnitTest {
+public class TenPinBowlingScoreCalculatorImplJUnitTest {
 
-	private TenPinBowlingScoreCalculator testSubject;
+	private TenPinBowlingScoreCalculatorImpl testSubject;
 
 	@Before
 	public void setUp() {
-		testSubject = new TenPinBowlingScoreCalculator();
+		testSubject = new TenPinBowlingScoreCalculatorImpl();
 	}
 
 	@Test
 	public void should01CalculateScoreWhenNoRounds() {
 		System.out.println("should01CalculateScoreWhenNoRounds");
 
-		Round[] rounds = new Round[0];
+		RoundImpl[] rounds = new RoundImpl[0];
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -33,8 +33,8 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should02CalculateScoreForFirstRound() {
 		System.out.println("should02CalculateScoreForFirstRound");
 
-		Round[] rounds = new Round[1];
-		rounds[0] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[1];
+		rounds[0] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -47,9 +47,9 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should03CalculateScoreForTwoRounds() {
 		System.out.println("should03CalculateScoreForTwoRounds");
 
-		Round[] rounds = new Round[2];
-		rounds[0] = new Round(1, 1);
-		rounds[1] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[2];
+		rounds[0] = new RoundImpl(1, 1);
+		rounds[1] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -62,17 +62,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should04CalculateScoreForTenRounds() {
 		System.out.println("should04CalculateScoreForTenRounds");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(1, 1);
-		rounds[1] = new Round(1, 1);
-		rounds[2] = new Round(1, 1);
-		rounds[3] = new Round(1, 1);
-		rounds[4] = new Round(1, 1);
-		rounds[5] = new Round(1, 1);
-		rounds[6] = new Round(1, 1);
-		rounds[7] = new Round(1, 1);
-		rounds[8] = new Round(1, 1);
-		rounds[9] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(1, 1);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(1, 1);
+		rounds[3] = new RoundImpl(1, 1);
+		rounds[4] = new RoundImpl(1, 1);
+		rounds[5] = new RoundImpl(1, 1);
+		rounds[6] = new RoundImpl(1, 1);
+		rounds[7] = new RoundImpl(1, 1);
+		rounds[8] = new RoundImpl(1, 1);
+		rounds[9] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -85,8 +85,8 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should05CalculateScoreForFirstRoundWithSpare() {
 		System.out.println("should05CalculateScoreForFirstRoundWithSpare");
 
-		Round[] rounds = new Round[1];
-		rounds[0] = new Round(1, 9);
+		RoundImpl[] rounds = new RoundImpl[1];
+		rounds[0] = new RoundImpl(1, 9);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -99,9 +99,9 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should06CalculateScoreForTwoRoundsWithFirstRoundSpare() {
 		System.out.println("should06CalculateScoreForTwoRoundsWithFirstRoundSpare");
 
-		Round[] rounds = new Round[2];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[2];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -114,10 +114,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should07CalculateScoreForThreeRoundsWithFirstRoundSpareAndThirdRoundStrike() {
 		System.out.println("should07CalculateScoreForThreeRoundsWithFirstRoundSpareAndThirdRoundStrike");
 
-		Round[] rounds = new Round[3];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 1);
-		rounds[2] = new Round(10);
+		RoundImpl[] rounds = new RoundImpl[3];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(10);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -130,11 +130,11 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should08CalculateScoreForFourRoundsWithThirdRoundStrike() {
 		System.out.println("should08CalculateScoreForFourRoundsWithThirdRoundStrike");
 
-		Round[] rounds = new Round[4];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 1);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[4];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -147,11 +147,11 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should09CalculateScoreForFiveRoundsWithThirdAndFourthRoundStrikes() {
 		System.out.println("should09CalculateScoreForFiveRoundsWithThirdAndFourthRoundStrikes");
 
-		Round[] rounds = new Round[4];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 1);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(10);
+		RoundImpl[] rounds = new RoundImpl[4];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(10);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -164,12 +164,12 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should10CalculateScoreForfiveRoundsWithThirdAndFourthRoundStrikes() {
 		System.out.println("should10CalculateScoreForSixRoundsWithThirdAndFourthRoundStrikes");
 
-		Round[] rounds = new Round[5];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 1);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(10);
-		rounds[4] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[5];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(10);
+		rounds[4] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -182,17 +182,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should11CalculateScoreFor10Rounds() {
 		System.out.println("should11CalculateScoreFor10Rounds");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 1);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(10);
-		rounds[4] = new Round(1, 1);
-		rounds[5] = new Round(1, 1);
-		rounds[6] = new Round(1, 1);
-		rounds[7] = new Round(1, 1);
-		rounds[8] = new Round(1, 1);
-		rounds[9] = new Round(1, 1);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(10);
+		rounds[4] = new RoundImpl(1, 1);
+		rounds[5] = new RoundImpl(1, 1);
+		rounds[6] = new RoundImpl(1, 1);
+		rounds[7] = new RoundImpl(1, 1);
+		rounds[8] = new RoundImpl(1, 1);
+		rounds[9] = new RoundImpl(1, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -205,17 +205,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should12CalculateScoreFor9StrikeRoundsPlusSpare() {
 		System.out.println("should12CalculateScoreFor9StrikeRoundsPlusSpare");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(10);
-		rounds[1] = new Round(10);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(10);
-		rounds[4] = new Round(10);
-		rounds[5] = new Round(10);
-		rounds[6] = new Round(10);
-		rounds[7] = new Round(10);
-		rounds[8] = new Round(10);
-		rounds[9] = new Round(1, 9, 10);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(10);
+		rounds[1] = new RoundImpl(10);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(10);
+		rounds[4] = new RoundImpl(10);
+		rounds[5] = new RoundImpl(10);
+		rounds[6] = new RoundImpl(10);
+		rounds[7] = new RoundImpl(10);
+		rounds[8] = new RoundImpl(10);
+		rounds[9] = new RoundImpl(1, 9, 10);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -228,17 +228,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should13CalculateScoreFor10StrikeRounds() {
 		System.out.println("should13CalculateScoreFor10StrikeRounds");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(10);
-		rounds[1] = new Round(10);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(10);
-		rounds[4] = new Round(10);
-		rounds[5] = new Round(10);
-		rounds[6] = new Round(10);
-		rounds[7] = new Round(10);
-		rounds[8] = new Round(10);
-		rounds[9] = new Round(10, 10, 10);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(10);
+		rounds[1] = new RoundImpl(10);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(10);
+		rounds[4] = new RoundImpl(10);
+		rounds[5] = new RoundImpl(10);
+		rounds[6] = new RoundImpl(10);
+		rounds[7] = new RoundImpl(10);
+		rounds[8] = new RoundImpl(10);
+		rounds[9] = new RoundImpl(10, 10, 10);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -251,17 +251,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should14CalculateScoreFor9StrikeRoundsAndASpare() {
 		System.out.println("should14CalculateScoreFor9StrikeRoundsAndASpare");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 9);
-		rounds[2] = new Round(1, 9);
-		rounds[3] = new Round(1, 9);
-		rounds[4] = new Round(1, 9);
-		rounds[5] = new Round(1, 9);
-		rounds[6] = new Round(1, 9);
-		rounds[7] = new Round(1, 9);
-		rounds[8] = new Round(1, 9);
-		rounds[9] = new Round(1, 9, 1);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 9);
+		rounds[2] = new RoundImpl(1, 9);
+		rounds[3] = new RoundImpl(1, 9);
+		rounds[4] = new RoundImpl(1, 9);
+		rounds[5] = new RoundImpl(1, 9);
+		rounds[6] = new RoundImpl(1, 9);
+		rounds[7] = new RoundImpl(1, 9);
+		rounds[8] = new RoundImpl(1, 9);
+		rounds[9] = new RoundImpl(1, 9, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -274,17 +274,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should14CalculateScoreFor10Rounds() {
 		System.out.println("should14CalculateScoreFor10StrikeRounds");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(1, 9);
-		rounds[1] = new Round(1, 9);
-		rounds[2] = new Round(1, 9);
-		rounds[3] = new Round(1, 9);
-		rounds[4] = new Round(1, 9);
-		rounds[5] = new Round(1, 9);
-		rounds[6] = new Round(1, 9);
-		rounds[7] = new Round(1, 9);
-		rounds[8] = new Round(1, 9);
-		rounds[9] = new Round(1, 9, 1);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(1, 9);
+		rounds[1] = new RoundImpl(1, 9);
+		rounds[2] = new RoundImpl(1, 9);
+		rounds[3] = new RoundImpl(1, 9);
+		rounds[4] = new RoundImpl(1, 9);
+		rounds[5] = new RoundImpl(1, 9);
+		rounds[6] = new RoundImpl(1, 9);
+		rounds[7] = new RoundImpl(1, 9);
+		rounds[8] = new RoundImpl(1, 9);
+		rounds[9] = new RoundImpl(1, 9, 1);
 
 		// When
 		int[] score = testSubject.score(rounds);
@@ -297,17 +297,17 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should15CalculateScoreFor9StrikeRounds() {
 		System.out.println("should15CalculateScoreFor9StrikeRounds");
 
-		Round[] rounds = new Round[10];
-		rounds[0] = new Round(10);
-		rounds[1] = new Round(10);
-		rounds[2] = new Round(10);
-		rounds[3] = new Round(10);
-		rounds[4] = new Round(10);
-		rounds[5] = new Round(10);
-		rounds[6] = new Round(10);
-		rounds[7] = new Round(10);
-		rounds[8] = new Round(10);
-		rounds[9] = new Round(1, 8);
+		RoundImpl[] rounds = new RoundImpl[10];
+		rounds[0] = new RoundImpl(10);
+		rounds[1] = new RoundImpl(10);
+		rounds[2] = new RoundImpl(10);
+		rounds[3] = new RoundImpl(10);
+		rounds[4] = new RoundImpl(10);
+		rounds[5] = new RoundImpl(10);
+		rounds[6] = new RoundImpl(10);
+		rounds[7] = new RoundImpl(10);
+		rounds[8] = new RoundImpl(10);
+		rounds[9] = new RoundImpl(1, 8);
 
 		// When
 		int[] score = testSubject.score(rounds);

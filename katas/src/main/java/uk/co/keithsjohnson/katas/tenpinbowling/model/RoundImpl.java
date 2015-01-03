@@ -1,6 +1,6 @@
 package uk.co.keithsjohnson.katas.tenpinbowling.model;
 
-public class Round {
+public class RoundImpl {
 
 	private final int first;
 	private final int second;
@@ -12,19 +12,19 @@ public class Round {
 
 	private final boolean lastRound;
 
-	public Round(int first) {
+	public RoundImpl(int first) {
 		this(first, 0, 0, false);
 	}
 
-	public Round(int first, int second) {
+	public RoundImpl(int first, int second) {
 		this(first, second, 0, false);
 	}
 
-	public Round(int first, int second, int third) {
+	public RoundImpl(int first, int second, int third) {
 		this(first, second, third, true);
 	}
 
-	private Round(int first, int second, int third, boolean lastRound) {
+	private RoundImpl(int first, int second, int third, boolean lastRound) {
 		this.first = first;
 		this.second = second;
 		this.third = third;
