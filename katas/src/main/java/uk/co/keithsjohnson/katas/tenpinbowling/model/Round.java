@@ -95,4 +95,10 @@ public class Round {
 			return String.format("%d", third);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Round [first=" + first + ", second=" + second + ", third=" + third + ", strike=" + strike + ", spare=" + spare + ", normal=" + normal
+		        + ", lastRound=" + lastRound + "]";
+	}
 }
