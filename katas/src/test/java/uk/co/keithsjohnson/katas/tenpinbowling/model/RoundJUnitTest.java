@@ -72,4 +72,13 @@ public class RoundJUnitTest {
 		assertFalse(testSubject.isSpare());
 		assertTrue(testSubject.isLastRound());
 	}
+
+	@Test
+	public void shouldCallToString() {
+		// Given
+		Round testSubject = new Round(10, 10, 10);
+
+		// Then
+		System.out.println(testSubject.toString());
+	}
 }

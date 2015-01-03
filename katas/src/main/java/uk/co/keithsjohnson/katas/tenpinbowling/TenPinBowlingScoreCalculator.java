@@ -14,10 +14,10 @@ public class TenPinBowlingScoreCalculator {
 			if (roundIndex < rounds.length) {
 				Round nextRound = null;
 				Round strikeRound = null;
-				if (roundIndex + 1 < rounds.length && roundIndex <= 9) {
+				if (roundIndex + 1 < rounds.length) {
 					nextRound = rounds[roundIndex + 1];
 				}
-				if (roundIndex + 2 < rounds.length && roundIndex <= 8) {
+				if (roundIndex + 2 < rounds.length) {
 					strikeRound = rounds[roundIndex + 2];
 				}
 				score += calculateRoundScore(rounds[roundIndex], nextRound, strikeRound);
@@ -33,8 +33,7 @@ public class TenPinBowlingScoreCalculator {
 	private int calculateRoundScore(Round round, Round nextRound, Round strikeRound) {
 		if (round.isNormal()) {
 			return calculateNormal(round);
-		}
-		if (round.isSpare()) {
+		} else if (round.isSpare()) {
 			return calculateSpare(round, nextRound);
 		}
 		return calculateStrike(round, nextRound, strikeRound);
