@@ -66,4 +66,33 @@ public class Round {
 		return first + second;
 	}
 
+	public String firstScore() {
+		if (first == 10) {
+			return "X";
+		} else {
+			return String.format("%d", first);
+		}
+	}
+
+	public String secondScore() {
+		if (first == 10) {
+			return " ";
+		} else if (score() == 10) {
+			return "/";
+		} else if (second == 0) {
+			return " ";
+		} else {
+			return String.format("%d", second);
+		}
+	}
+
+	public String thirdScore() {
+		if (third == 10) {
+			return "X";
+		} else if (third == 0) {
+			return " ";
+		} else {
+			return String.format("%d", third);
+		}
+	}
 }

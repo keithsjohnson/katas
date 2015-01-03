@@ -20,42 +20,42 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 	public void should01CalculateScoreWhenNoRounds() {
 		System.out.println("should01CalculateScoreWhenNoRounds");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[0];
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(0, score);
+		assertEquals(0, score.length);
 	}
 
 	@Test
 	public void should02CalculateScoreForFirstRound() {
 		System.out.println("should02CalculateScoreForFirstRound");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[1];
 		rounds[0] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(2, score);
+		assertEquals(2, score[0]);
 	}
 
 	@Test
 	public void should03CalculateScoreForTwoRounds() {
 		System.out.println("should03CalculateScoreForTwoRounds");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[2];
 		rounds[0] = new Round(1, 1);
 		rounds[1] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(4, score);
+		assertEquals(4, score[1]);
 	}
 
 	@Test
@@ -75,96 +75,96 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(20, score);
+		assertEquals(20, score[9]);
 	}
 
 	@Test
 	public void should05CalculateScoreForFirstRoundWithSpare() {
 		System.out.println("should05CalculateScoreForFirstRoundWithSpare");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[1];
 		rounds[0] = new Round(1, 9);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(0, score);
+		assertEquals(0, score[0]);
 	}
 
 	@Test
 	public void should06CalculateScoreForTwoRoundsWithFirstRoundSpare() {
 		System.out.println("should06CalculateScoreForTwoRoundsWithFirstRoundSpare");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[2];
 		rounds[0] = new Round(1, 9);
 		rounds[1] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(13, score);
+		assertEquals(13, score[1]);
 	}
 
 	@Test
 	public void should07CalculateScoreForThreeRoundsWithFirstRoundSpareAndThirdRoundStrike() {
 		System.out.println("should07CalculateScoreForThreeRoundsWithFirstRoundSpareAndThirdRoundStrike");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[3];
 		rounds[0] = new Round(1, 9);
 		rounds[1] = new Round(1, 1);
 		rounds[2] = new Round(10);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(13, score);
+		assertEquals(13, score[2]);
 	}
 
 	@Test
 	public void should08CalculateScoreForFourRoundsWithThirdRoundStrike() {
 		System.out.println("should08CalculateScoreForFourRoundsWithThirdRoundStrike");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[4];
 		rounds[0] = new Round(1, 9);
 		rounds[1] = new Round(1, 1);
 		rounds[2] = new Round(10);
 		rounds[3] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(27, score);
+		assertEquals(27, score[3]);
 	}
 
 	@Test
 	public void should09CalculateScoreForFiveRoundsWithThirdAndFourthRoundStrikes() {
 		System.out.println("should09CalculateScoreForFiveRoundsWithThirdAndFourthRoundStrikes");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[4];
 		rounds[0] = new Round(1, 9);
 		rounds[1] = new Round(1, 1);
 		rounds[2] = new Round(10);
 		rounds[3] = new Round(10);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(13, score);
+		assertEquals(13, score[3]);
 	}
 
 	@Test
 	public void should10CalculateScoreForfiveRoundsWithThirdAndFourthRoundStrikes() {
 		System.out.println("should10CalculateScoreForSixRoundsWithThirdAndFourthRoundStrikes");
 
-		Round[] rounds = new Round[10];
+		Round[] rounds = new Round[5];
 		rounds[0] = new Round(1, 9);
 		rounds[1] = new Round(1, 1);
 		rounds[2] = new Round(10);
@@ -172,10 +172,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[4] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(48, score);
+		assertEquals(48, score[4]);
 	}
 
 	@Test
@@ -195,10 +195,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(1, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(58, score);
+		assertEquals(58, score[9]);
 	}
 
 	@Test
@@ -218,10 +218,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(1, 9, 10);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(271, score);
+		assertEquals(271, score[9]);
 	}
 
 	@Test
@@ -241,10 +241,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(10, 10, 10);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(300, score);
+		assertEquals(300, score[9]);
 	}
 
 	@Test
@@ -264,10 +264,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(1, 9, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(110, score);
+		assertEquals(110, score[9]);
 	}
 
 	@Test
@@ -287,10 +287,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(1, 9, 1);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(110, score);
+		assertEquals(110, score[9]);
 	}
 
 	@Test
@@ -310,10 +310,10 @@ public class TenPinBowlingScoreCalculatorJUnitTest {
 		rounds[9] = new Round(1, 8);
 
 		// When
-		int score = testSubject.score(rounds);
+		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(259, score);
+		assertEquals(259, score[9]);
 	}
 
 }

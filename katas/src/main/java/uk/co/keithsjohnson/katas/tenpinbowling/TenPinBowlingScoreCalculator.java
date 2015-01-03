@@ -4,17 +4,65 @@ import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
 public class TenPinBowlingScoreCalculator {
 
-	public int score(Round[] rounds) {
+	public int[] score(Round[] rounds) {
+		int[] results = new int[rounds.length];
+		if (rounds.length == 0) {
+			return results;
+		}
 		int score = 0;
 		for (int roundIndex = 0; roundIndex < 10; roundIndex++) {
-			if (rounds[roundIndex] != null) {
-				score += calculateRoundScore(rounds[roundIndex], (roundIndex) >= 9 ? null : rounds[roundIndex + 1], (roundIndex) >= 8 ? null
-				        : rounds[roundIndex + 2]);
-				System.out.println("score[" + roundIndex + "]=" + score);
+			if (roundIndex < rounds.length) {
+				Round nextRound = null;
+				Round strikeRound = null;
+				if (roundIndex + 1 < rounds.length && roundIndex <= 9) {
+					nextRound = rounds[roundIndex + 1];
+				}
+				if (roundIndex + 2 < rounds.length && roundIndex <= 8) {
+					strikeRound = rounds[roundIndex + 2];
+				}
+				score += calculateRoundScore(rounds[roundIndex], nextRound, strikeRound);
+				// System.out.println("score[" + roundIndex + "]=" +
+				// String.format("%3d", score));
+				results[roundIndex] = score;
 			}
 		}
+		printScore(rounds, results);
+		return results;
+	}
+
+	private void printScore(Round[] rounds, int[] results) {
 		System.out.println("--------------------------");
-		return score;
+		StringBuilder roundsLineBuilder = new StringBuilder(100);
+		StringBuilder linesBuilder = new StringBuilder(100);
+		StringBuilder scoresLineBuilder = new StringBuilder(100);
+		StringBuilder pinsLineBuilder = new StringBuilder(100);
+		for (int roundIndex = 0; roundIndex < 10; roundIndex++) {
+			roundsLineBuilder.append("|");
+			roundsLineBuilder.append(String.format(" %3d ", roundIndex + 1));
+			linesBuilder.append("______");
+			if (roundIndex < rounds.length) {
+				scoresLineBuilder.append("| ");
+				scoresLineBuilder.append(rounds[roundIndex].firstScore());
+				scoresLineBuilder.append("| ");
+				scoresLineBuilder.append(rounds[roundIndex].secondScore());
+				pinsLineBuilder.append("|");
+				pinsLineBuilder.append(String.format(" %3d ", results[roundIndex]));
+			} else {
+				scoresLineBuilder.append("|  |  ");
+				pinsLineBuilder.append("|     ");
+			}
+		}
+		roundsLineBuilder.append("|");
+		linesBuilder.append("_");
+		scoresLineBuilder.append("|");
+		pinsLineBuilder.append("|");
+
+		System.out.println(linesBuilder.toString());
+		System.out.println(roundsLineBuilder.toString());
+		System.out.println(linesBuilder.toString());
+		System.out.println(scoresLineBuilder.toString());
+		System.out.println(pinsLineBuilder.toString());
+		System.out.println(linesBuilder.toString());
 	}
 
 	private int calculateRoundScore(Round round, Round nextRound, Round strikeRound) {
