@@ -25,6 +25,22 @@ public class RoundImplJUnitTest {
 	}
 
 	@Test
+	public void shouldCreateNormalRoundWithZeroScores() {
+		// Given
+		Round testSubject = new RoundImpl(0, 0);
+
+		// Then
+		assertEquals(0, testSubject.getFirst());
+		assertEquals(0, testSubject.getSecond());
+		assertEquals(0, testSubject.getThird());
+		assertEquals(0, testSubject.score());
+		assertTrue(testSubject.isNormal());
+		assertFalse(testSubject.isStrike());
+		assertFalse(testSubject.isSpare());
+		assertFalse(testSubject.isLastRound());
+	}
+
+	@Test
 	public void shouldCreateSpareRound() {
 		// Given
 		Round testSubject = new RoundImpl(1, 9);
@@ -57,28 +73,4 @@ public class RoundImplJUnitTest {
 		assertFalse(testSubject.isLastRound());
 	}
 
-	@Test
-	public void shouldCreateStrikeLastRound() {
-		// Given
-		Round testSubject = new RoundImpl(10, 10, 10);
-
-		// Then
-		assertEquals(10, testSubject.getFirst());
-		assertEquals(10, testSubject.getSecond());
-		assertEquals(10, testSubject.getThird());
-		assertEquals(20, testSubject.score());
-		assertFalse(testSubject.isNormal());
-		assertTrue(testSubject.isStrike());
-		assertFalse(testSubject.isSpare());
-		assertTrue(testSubject.isLastRound());
-	}
-
-	@Test
-	public void shouldCallToString() {
-		// Given
-		Round testSubject = new RoundImpl(10, 10, 10);
-
-		// Then
-		System.out.println(testSubject.toString());
-	}
 }

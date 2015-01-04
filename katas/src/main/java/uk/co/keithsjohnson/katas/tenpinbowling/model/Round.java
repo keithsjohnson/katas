@@ -6,15 +6,11 @@ public interface Round {
 
 	public abstract int getSecond();
 
-	public abstract int getThird();
-
 	public abstract boolean isNormal();
 
 	public abstract boolean isStrike();
 
 	public abstract boolean isSpare();
-
-	public abstract boolean isLastRound();
 
 	public abstract int score();
 
@@ -22,8 +18,15 @@ public interface Round {
 
 	public abstract String secondScore();
 
+	public default int getThird() {
+		return 0;
+	}
+
+	public default boolean isLastRound() {
+		return false;
+	}
+
 	public default String thirdScore() {
 		return " ";
-	};
-
+	}
 }

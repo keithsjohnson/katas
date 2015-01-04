@@ -4,9 +4,7 @@ import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
 public class TenPinBowlingScoreCalculatorImpl implements TenPinBowlingScoreCalculator {
 
-	/* (non-Javadoc)
-	 * @see uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScoreCalculator#score(uk.co.keithsjohnson.katas.tenpinbowling.model.Round[])
-	 */
+	@Override
 	public int[] score(Round[] rounds) {
 		int[] results = new int[rounds.length];
 		if (rounds.length == 0) {

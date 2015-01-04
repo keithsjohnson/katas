@@ -4,9 +4,7 @@ import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
 public class TenPinBowlingScorePrinterImpl implements TenPinBowlingScorePrinter {
 
-	/* (non-Javadoc)
-	 * @see uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScorePrinter#printScore(uk.co.keithsjohnson.katas.tenpinbowling.model.Round[], int[])
-	 */
+	@Override
 	public void printScore(Round[] rounds, int[] results) {
 		System.out.println("--------------------------");
 		StringBuilder roundsLineBuilder = new StringBuilder(100);
