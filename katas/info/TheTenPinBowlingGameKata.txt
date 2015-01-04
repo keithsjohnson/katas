@@ -1,0 +1,4 @@
+TheTenPinBowlingGameKata
+
+http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata
+http://butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt
