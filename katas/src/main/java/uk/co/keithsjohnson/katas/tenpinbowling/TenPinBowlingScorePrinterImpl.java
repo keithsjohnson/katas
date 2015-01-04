@@ -15,7 +15,7 @@ public class TenPinBowlingScorePrinterImpl implements TenPinBowlingScorePrinter 
 			roundsLineBuilder.append("|");
 			roundsLineBuilder.append(String.format(" %3d ", roundIndex + 1));
 			linesBuilder.append("______");
-			if (roundIndex < rounds.length) {
+			if (roundIndex < rounds.length && rounds[roundIndex] != null) {
 				scoresLineBuilder.append("| ");
 				scoresLineBuilder.append(rounds[roundIndex].firstScore());
 				scoresLineBuilder.append("| ");

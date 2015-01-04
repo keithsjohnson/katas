@@ -4,18 +4,25 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import uk.co.keithsjohnson.katas.tenpinbowling.model.LastRoundImpl;
 import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 import uk.co.keithsjohnson.katas.tenpinbowling.model.RoundImpl;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TenPinBowlingScoreCalculatorImplJUnitTest {
 
 	private TenPinBowlingScoreCalculator testSubject;
 
+	@Mock
+	public TenPinBowlingScorePrinter mockTenPinBowlingScorePrinter;
+
 	@Before
 	public void setUp() {
-		testSubject = new TenPinBowlingScoreCalculatorImpl();
+		testSubject = new TenPinBowlingScoreCalculatorImpl(mockTenPinBowlingScorePrinter);
 	}
 
 	@Test

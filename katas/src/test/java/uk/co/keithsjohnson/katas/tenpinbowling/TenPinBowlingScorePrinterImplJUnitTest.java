@@ -112,4 +112,20 @@ public class TenPinBowlingScorePrinterImplJUnitTest {
 		// Then
 	}
 
+	@Test
+	public void shouldPrintScoreFor2Rounds() {
+		System.out.println("shouldPrintScoreFor2Rounds");
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new RoundImpl(0, 0);
+		rounds[1] = new RoundImpl(1, 1);
+
+		int[] results = { 0, 2 };
+
+		// When
+		testSubject.printScore(rounds, results);
+
+		// Then
+	}
+
 }

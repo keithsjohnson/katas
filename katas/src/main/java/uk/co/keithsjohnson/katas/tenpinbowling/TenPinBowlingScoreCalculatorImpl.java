@@ -4,6 +4,12 @@ import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
 public class TenPinBowlingScoreCalculatorImpl implements TenPinBowlingScoreCalculator {
 
+	private final TenPinBowlingScorePrinter tenPinBowlingScorePrinter;
+
+	public TenPinBowlingScoreCalculatorImpl(TenPinBowlingScorePrinter tenPinBowlingScorePrinter) {
+		this.tenPinBowlingScorePrinter = tenPinBowlingScorePrinter;
+	}
+
 	@Override
 	public int[] score(Round[] rounds) {
 		int[] results = new int[rounds.length];
@@ -27,7 +33,7 @@ public class TenPinBowlingScoreCalculatorImpl implements TenPinBowlingScoreCalcu
 				results[roundIndex] = score;
 			}
 		}
-		new TenPinBowlingScorePrinterImpl().printScore(rounds, results);
+		tenPinBowlingScorePrinter.printScore(rounds, results);
 		return results;
 	}
 
