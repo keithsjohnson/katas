@@ -1,7 +1,10 @@
 package uk.co.keithsjohnson.katas.tenpinbowling;
 
+import org.springframework.stereotype.Component;
+
 import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
+@Component
 public class TenPinBowlingScorePrinterImpl implements TenPinBowlingScorePrinter {
 
 	@Override

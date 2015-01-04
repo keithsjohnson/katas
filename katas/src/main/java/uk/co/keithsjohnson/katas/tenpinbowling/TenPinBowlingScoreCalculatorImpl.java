@@ -1,11 +1,16 @@
 package uk.co.keithsjohnson.katas.tenpinbowling;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
+@Component
 public class TenPinBowlingScoreCalculatorImpl implements TenPinBowlingScoreCalculator {
 
 	private final TenPinBowlingScorePrinter tenPinBowlingScorePrinter;
 
+	@Autowired
 	public TenPinBowlingScoreCalculatorImpl(TenPinBowlingScorePrinter tenPinBowlingScorePrinter) {
 		this.tenPinBowlingScorePrinter = tenPinBowlingScorePrinter;
 	}
