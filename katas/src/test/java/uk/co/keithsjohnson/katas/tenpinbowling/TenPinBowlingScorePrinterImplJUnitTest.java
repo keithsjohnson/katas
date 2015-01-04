@@ -3,11 +3,12 @@ package uk.co.keithsjohnson.katas.tenpinbowling;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 import uk.co.keithsjohnson.katas.tenpinbowling.model.RoundImpl;
 
 public class TenPinBowlingScorePrinterImplJUnitTest {
 
-	private TenPinBowlingScorePrinterImpl testSubject;
+	private TenPinBowlingScorePrinter testSubject;
 
 	@Before
 	public void setUp() {
@@ -18,7 +19,7 @@ public class TenPinBowlingScorePrinterImplJUnitTest {
 	public void shouldPrintScoreFor10StrikeRounds() {
 		System.out.println("shouldPrintScoreFor10StrikeRounds");
 
-		RoundImpl[] rounds = new RoundImpl[10];
+		Round[] rounds = new Round[10];
 		rounds[0] = new RoundImpl(10);
 		rounds[1] = new RoundImpl(10);
 		rounds[2] = new RoundImpl(10);

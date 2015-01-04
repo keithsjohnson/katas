@@ -11,7 +11,7 @@ public class RoundImplJUnitTest {
 	@Test
 	public void shouldCreateNormalRound() {
 		// Given
-		RoundImpl testSubject = new RoundImpl(1, 2);
+		Round testSubject = new RoundImpl(1, 2);
 
 		// Then
 		assertEquals(1, testSubject.getFirst());
@@ -27,7 +27,7 @@ public class RoundImplJUnitTest {
 	@Test
 	public void shouldCreateSpareRound() {
 		// Given
-		RoundImpl testSubject = new RoundImpl(1, 9);
+		Round testSubject = new RoundImpl(1, 9);
 
 		// Then
 		assertEquals(1, testSubject.getFirst());
@@ -43,7 +43,7 @@ public class RoundImplJUnitTest {
 	@Test
 	public void shouldCreateStrikeRound() {
 		// Given
-		RoundImpl testSubject = new RoundImpl(10);
+		Round testSubject = new RoundImpl(10);
 
 		// Then
 		assertEquals(10, testSubject.getFirst());
@@ -60,7 +60,7 @@ public class RoundImplJUnitTest {
 	@Test
 	public void shouldCreateStrikeLastRound() {
 		// Given
-		RoundImpl testSubject = new RoundImpl(10, 10, 10);
+		Round testSubject = new RoundImpl(10, 10, 10);
 
 		// Then
 		assertEquals(10, testSubject.getFirst());
@@ -76,7 +76,7 @@ public class RoundImplJUnitTest {
 	@Test
 	public void shouldCallToString() {
 		// Given
-		RoundImpl testSubject = new RoundImpl(10, 10, 10);
+		Round testSubject = new RoundImpl(10, 10, 10);
 
 		// Then
 		System.out.println(testSubject.toString());

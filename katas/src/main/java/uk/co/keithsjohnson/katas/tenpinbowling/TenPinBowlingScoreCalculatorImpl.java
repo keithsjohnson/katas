@@ -1,10 +1,13 @@
 package uk.co.keithsjohnson.katas.tenpinbowling;
 
-import uk.co.keithsjohnson.katas.tenpinbowling.model.RoundImpl;
+import uk.co.keithsjohnson.katas.tenpinbowling.model.Round;
 
-public class TenPinBowlingScoreCalculatorImpl {
+public class TenPinBowlingScoreCalculatorImpl implements TenPinBowlingScoreCalculator {
 
-	public int[] score(RoundImpl[] rounds) {
+	/* (non-Javadoc)
+	 * @see uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScoreCalculator#score(uk.co.keithsjohnson.katas.tenpinbowling.model.Round[])
+	 */
+	public int[] score(Round[] rounds) {
 		int[] results = new int[rounds.length];
 		if (rounds.length == 0) {
 			return results;
@@ -12,8 +15,8 @@ public class TenPinBowlingScoreCalculatorImpl {
 		int score = 0;
 		for (int roundIndex = 0; roundIndex < 10; roundIndex++) {
 			if (roundIndex < rounds.length) {
-				RoundImpl nextRound = null;
-				RoundImpl strikeRound = null;
+				Round nextRound = null;
+				Round strikeRound = null;
 				if (roundIndex + 1 < rounds.length) {
 					nextRound = rounds[roundIndex + 1];
 				}
@@ -30,7 +33,7 @@ public class TenPinBowlingScoreCalculatorImpl {
 		return results;
 	}
 
-	private int calculateRoundScore(RoundImpl round, RoundImpl nextRound, RoundImpl strikeRound) {
+	private int calculateRoundScore(Round round, Round nextRound, Round strikeRound) {
 		if (round.isNormal()) {
 			return calculateNormal(round);
 		} else if (round.isSpare()) {
@@ -39,18 +42,18 @@ public class TenPinBowlingScoreCalculatorImpl {
 		return calculateStrike(round, nextRound, strikeRound);
 	}
 
-	private int calculateNormal(RoundImpl round) {
+	private int calculateNormal(Round round) {
 		return round.score();
 	}
 
-	private int calculateSpare(RoundImpl round, RoundImpl nextRound) {
+	private int calculateSpare(Round round, Round nextRound) {
 		if (round.isLastRound()) {
 			return round.score() + round.getThird();
 		}
 		return (nextRound == null ? 0 : round.score() + nextRound.getFirst());
 	}
 
-	private int calculateStrike(RoundImpl round, RoundImpl nextRound, RoundImpl strikeRound) {
+	private int calculateStrike(Round round, Round nextRound, Round strikeRound) {
 		if (round.isLastRound()) {
 			return round.score() + round.getThird();
 		}
