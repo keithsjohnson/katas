@@ -1,0 +1,21 @@
+http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd
+ 
+http://www.jbrains.ca/permalink/how-test-driven-development-works-and-more
+ 
+uk.co.cdl.kata.template is the project that we have been using the run the katas up till now.  It’s available in gerrit.
+ 
+We have so far tackled the following Katas:
+ 
+http://codingdojo.org/cgi-bin/index.pl?KataPotter
+ 
+http://www.blog.btbw.pl/java/code-kata-10-java-calc-stats/
+ 
+http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata
+ 
+http://www.reddit.com/r/dailyprogrammer/comments/263dp1/5212014_challenge_163_intermediate_fallouts/   This reddit has MANY kata’s. It might be a good resource.
+ 
+http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals This one is likely next on the list
+ 
+I’ve also attached a TDD demo presentation that I prepared for one session.  If giving this again I would use some different examples, amazing how critical you can become of your own work only 6 months later!
+ 
+TDDer’s Yammer Group https://www.yammer.com/cdl.co.uk/#/threads/inGroup?type=in_group&feedId=3366303 I’m going to update this!
