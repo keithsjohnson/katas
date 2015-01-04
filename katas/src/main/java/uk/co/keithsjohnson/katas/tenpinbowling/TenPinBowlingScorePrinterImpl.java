@@ -22,6 +22,13 @@ public class TenPinBowlingScorePrinterImpl implements TenPinBowlingScorePrinter 
 				scoresLineBuilder.append(rounds[roundIndex].secondScore());
 				pinsLineBuilder.append("|");
 				pinsLineBuilder.append(String.format(" %3d ", results[roundIndex]));
+				if (rounds[roundIndex].isLastRound()) {
+					roundsLineBuilder.append("   ");
+					linesBuilder.append("___");
+					scoresLineBuilder.append("| ");
+					scoresLineBuilder.append(rounds[roundIndex].thirdScore());
+					pinsLineBuilder.append("   ");
+				}
 			} else {
 				scoresLineBuilder.append("|  |  ");
 				pinsLineBuilder.append("|     ");
@@ -39,5 +46,4 @@ public class TenPinBowlingScorePrinterImpl implements TenPinBowlingScorePrinter 
 		System.out.println(pinsLineBuilder.toString());
 		System.out.println(linesBuilder.toString());
 	}
-
 }

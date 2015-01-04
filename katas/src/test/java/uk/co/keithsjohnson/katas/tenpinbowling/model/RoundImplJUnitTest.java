@@ -73,4 +73,21 @@ public class RoundImplJUnitTest {
 		assertFalse(testSubject.isLastRound());
 	}
 
+	@Test
+	public void shouldCallToString() {
+		// Given
+		Round testSubject = new RoundImpl(10, 10);
+
+		// Then
+		System.out.println(testSubject.toString());
+	}
+
+	@Test
+	public void shouldThirdString() {
+		// Given
+		Round testSubject = new RoundImpl(10, 10);
+
+		// Then
+		System.out.println(testSubject.thirdScore());
+	}
 }

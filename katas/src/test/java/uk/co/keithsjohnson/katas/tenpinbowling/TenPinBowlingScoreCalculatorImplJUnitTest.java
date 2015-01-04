@@ -329,16 +329,38 @@ public class TenPinBowlingScoreCalculatorImplJUnitTest {
 		rounds[3] = new RoundImpl(3, 3);
 		rounds[4] = new RoundImpl(4, 4);
 		rounds[5] = new RoundImpl(5, 5);
-		rounds[6] = new RoundImpl(6, 6);
-		rounds[7] = new RoundImpl(7, 7);
-		rounds[8] = new RoundImpl(8, 8);
-		rounds[9] = new RoundImpl(9, 9);
+		rounds[6] = new RoundImpl(6, 4);
+		rounds[7] = new RoundImpl(7, 3);
+		rounds[8] = new RoundImpl(8, 2);
+		rounds[9] = new RoundImpl(9, 0);
 
 		// When
 		int[] score = testSubject.score(rounds);
 
 		// Then
-		assertEquals(96, score[9]);
+		assertEquals(99, score[9]);
 	}
 
+	@Test
+	public void should17CalculateScoreFor10NormalRoundsWithLastRound() {
+		System.out.println("should16CalculateScoreFor10Rounds");
+
+		Round[] rounds = new Round[10];
+		rounds[0] = new RoundImpl(0, 0);
+		rounds[1] = new RoundImpl(1, 1);
+		rounds[2] = new RoundImpl(2, 2);
+		rounds[3] = new RoundImpl(3, 3);
+		rounds[4] = new RoundImpl(4, 4);
+		rounds[5] = new RoundImpl(5, 5);
+		rounds[6] = new RoundImpl(6, 4);
+		rounds[7] = new RoundImpl(7, 3);
+		rounds[8] = new RoundImpl(8, 2);
+		rounds[9] = new LastRoundImpl(9, 0);
+
+		// When
+		int[] score = testSubject.score(rounds);
+
+		// Then
+		assertEquals(99, score[9]);
+	}
 }

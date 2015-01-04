@@ -6,10 +6,27 @@ public class LastRoundImpl extends RoundImpl implements Round {
 
 	private final boolean lastRound;
 
+	public LastRoundImpl(int first, int second) {
+		super(first, second);
+		this.third = 0;
+		this.lastRound = true;
+	}
+
 	public LastRoundImpl(int first, int second, int third) {
 		super(first, second);
 		this.third = third;
 		this.lastRound = true;
+	}
+
+	@Override
+	public String secondScore() {
+		if (getSecond() == 10) {
+			return "X";
+		} else if (score() == 10) {
+			return "/";
+		} else {
+			return String.format("%d", getSecond());
+		}
 	}
 
 	@Override
@@ -26,11 +43,16 @@ public class LastRoundImpl extends RoundImpl implements Round {
 	public String thirdScore() {
 		if (third == 10) {
 			return "X";
-		} else if (third == 0) {
-			return " ";
-		} else {
+		} else if (isSpare() || isStrike()) {
 			return String.format("%d", third);
+		} else {
+			return " ";
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "LastRoundImpl [third=" + third + ", lastRound=" + lastRound + "]";
 	}
 
 }
