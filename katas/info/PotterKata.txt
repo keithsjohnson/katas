@@ -1,4 +1,6 @@
 Potter Kata
+-----------
+
 http://codingdojo.org/cgi-bin/index.pl?KataPotter
 
 If you want to try this Kata for yourself or at your dojo meeting, read the problem description and see if the Kata appeals to you. 
