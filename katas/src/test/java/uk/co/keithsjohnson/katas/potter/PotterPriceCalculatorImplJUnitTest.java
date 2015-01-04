@@ -25,12 +25,44 @@ public class PotterPriceCalculatorImplJUnitTest {
 		// Then
 		assertEquals(0D, price, 0D);
 	}
+
+	@Test
+	public void shouldCalculatePriceFor1Book() {
+		// Given
+		int[] books = { 0 };
+
+		// When
+		double price = potterPriceCalculatorImpl.price(books);
+
+		// Then
+		assertEquals(1 * 8D, price, 0D);
+	}
+
+	@Test
+	public void shouldCalculatePriceFor2SameBook() {
+		// Given
+		int[] books = { 0, 0 };
+
+		// When
+		double price = potterPriceCalculatorImpl.price(books);
+
+		// Then
+		assertEquals(2 * 8D, price, 0D);
+	}
+
+	@Test
+	public void shouldCalculatePriceFor3SameBook() {
+		// Given
+		int[] books = { 1, 1, 1 };
+
+		// When
+		double price = potterPriceCalculatorImpl.price(books);
+
+		// Then
+		assertEquals(3 * 8D, price, 0D);
+	}
+
 	// def testBasics
-	// assert_equal(8, price([0]))
-	// assert_equal(8, price([1]))
-	// assert_equal(8, price([2]))
-	// assert_equal(8, price([3]))
-	// assert_equal(8, price([4]))
 	// assert_equal(8 * 2, price([0, 0]))
 	// assert_equal(8 * 3, price([1, 1, 1]))
 	// end
