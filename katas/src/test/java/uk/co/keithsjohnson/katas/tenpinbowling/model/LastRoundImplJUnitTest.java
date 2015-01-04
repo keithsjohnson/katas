@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class FinalRoundImplJUnitTest {
+public class LastRoundImplJUnitTest {
 
 	@Test
 	public void shouldCreateStrikeLastRound() {
