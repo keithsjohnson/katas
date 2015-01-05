@@ -171,13 +171,17 @@ public class PotterPriceCalculatorImplJUnitTest {
 		// Then
 		assertEquals(2 * (8 * 4 * 0.8), price, 0D);
 	}
-	// def testEdgeCases
-	// assert_equal(2 * (8 * 4 * 0.8), price([0, 0, 1, 1, 2, 2, 3, 4]))
-	// assert_equal(3 * (8 * 5 * 0.75) + 2 * (8 * 4 * 0.8),
-	// price([0, 0, 0, 0, 0,
-	// 1, 1, 1, 1, 1,
-	// 2, 2, 2, 2,
-	// 3, 3, 3, 3, 3,
-	// 4, 4, 4, 4]))
-	// end
+
+	@Test
+	@Ignore
+	public void shouldCalculatePriceForEdgeCase2() {
+		// Given
+		int[] books = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4 };
+
+		// When
+		double price = potterPriceCalculatorImpl.price(books);
+
+		// Then
+		assertEquals(3 * (8 * 5 * 0.75) + 2 * (8 * 4 * 0.8), price, 0D);
+	}
 }
