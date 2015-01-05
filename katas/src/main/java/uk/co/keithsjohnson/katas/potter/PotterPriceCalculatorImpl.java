@@ -18,31 +18,36 @@ public class PotterPriceCalculatorImpl {
 			List<Integer> list = booksByBookMap.values().iterator().next();
 			return list.size() * 8D;
 		}
-		System.out.println(booksByBookMap.toString());
+		System.out.println("___________________________");
 
 		double price = 0;
 		int bookCount = 0;
 		do {
 			bookCount = countAndRemoveOneBookFromEachList(booksByBookMap);
+			double setPrice = 0D;
 			switch (bookCount) {
 			case 1:
-				price += bookCount * 8D;
+				setPrice = bookCount * 8D;
 				break;
 			case 2:
-				price += bookCount * 8D * 0.95;
+				setPrice = bookCount * 8D * 0.95;
 				break;
 			case 3:
-				price += bookCount * 8D * 0.90;
+				setPrice = bookCount * 8D * 0.90;
 				break;
 			case 4:
-				price += bookCount * 8D * 0.80;
+				setPrice = bookCount * 8D * 0.80;
 				break;
 			case 5:
-				price += bookCount * 8D * 0.75;
+				setPrice = bookCount * 8D * 0.75;
 				break;
 			}
+			System.out.println("Set Price=" + setPrice);
+			price += setPrice;
 		} while (bookCount > 0);
 
+		System.out.println("Total Price=" + price);
+		System.out.println("------");
 		return price;
 	}
 
