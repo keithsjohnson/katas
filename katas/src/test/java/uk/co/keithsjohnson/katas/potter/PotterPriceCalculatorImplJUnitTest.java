@@ -47,7 +47,7 @@ public class PotterPriceCalculatorImplJUnitTest {
 		double price = potterPriceCalculatorImpl.price(books);
 
 		// Then
-		assertEquals(2 * 8D, price, 0D);
+		assertEquals(books.length * 8D, price, 0D);
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class PotterPriceCalculatorImplJUnitTest {
 		double price = potterPriceCalculatorImpl.price(books);
 
 		// Then
-		assertEquals(3 * 8D, price, 0D);
+		assertEquals(books.length * 8D, price, 0D);
 	}
 
 	// def testBasics
