@@ -10,15 +10,10 @@ public class PotterPriceCalculatorImpl {
 
 	public double price(int... books) {
 
-		Map<Integer, List<Integer>> booksByBookMap = Arrays.stream(books).boxed().collect(Collectors.groupingBy(book -> book));
+		Map<Integer, List<Integer>> booksByBookMap = Arrays.stream(books).parallel().boxed().collect(Collectors.groupingBy(book -> book));
 
-		if (booksByBookMap.size() == 0) {
-			return 0D;
-		} else if (booksByBookMap.size() == 1) {
-			List<Integer> list = booksByBookMap.values().iterator().next();
-			return list.size() * 8D;
-		}
 		System.out.println("___________________________");
+		System.out.println("Start: " + booksByBookMap.toString());
 
 		double price = 0;
 		int bookCount = 0;
@@ -43,18 +38,18 @@ public class PotterPriceCalculatorImpl {
 				break;
 			}
 			System.out.println("Set Price=" + setPrice);
+			System.out.println("------");
 			price += setPrice;
 		} while (bookCount > 0);
 
 		System.out.println("Total Price=" + price);
-		System.out.println("------");
 		return price;
 	}
 
 	private int countAndRemoveOneBookFromEachList(Map<Integer, List<Integer>> booksByBookMap) {
 		final AtomicInteger count = new AtomicInteger();
 
-		booksByBookMap.keySet().forEach(key -> {
+		booksByBookMap.keySet().stream().parallel().forEach(key -> {
 			if (booksByBookMap.get(key).size() > 0) {
 				booksByBookMap.get(key).remove(0);
 				count.incrementAndGet();
