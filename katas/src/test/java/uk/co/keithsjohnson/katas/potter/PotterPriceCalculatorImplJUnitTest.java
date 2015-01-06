@@ -15,7 +15,7 @@ public class PotterPriceCalculatorImplJUnitTest {
 
 	private static long beforeTime;
 
-	private PotterPriceCalculatorImpl potterPriceCalculatorImpl;
+	private PotterPriceCalculator potterPriceCalculatorImpl;
 
 	@BeforeClass
 	public static void beforeClass() {

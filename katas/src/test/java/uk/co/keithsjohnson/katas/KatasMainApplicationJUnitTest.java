@@ -22,5 +22,6 @@ public class KatasMainApplicationJUnitTest {
 		assertNotNull(this.ctx);
 		assertTrue(this.ctx.containsBean("tenPinBowlingScoreCalculatorImpl"));
 		assertTrue(this.ctx.containsBean("tenPinBowlingScorePrinterImpl"));
+		assertTrue(this.ctx.containsBean("potterPriceCalculatorImpl"));
 	}
 }

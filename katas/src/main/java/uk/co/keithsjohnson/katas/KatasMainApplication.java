@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import uk.co.keithsjohnson.katas.potter.PotterPriceCalculator;
 import uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScoreCalculator;
 import uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScorePrinter;
 import uk.co.keithsjohnson.katas.tenpinbowling.model.LastRoundImpl;
@@ -20,6 +21,9 @@ public class KatasMainApplication implements CommandLineRunner {
 	@Autowired
 	TenPinBowlingScorePrinter tenPinBowlingScorePrinter;
 
+	@Autowired
+	PotterPriceCalculator potterPriceCalculator;
+
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(KatasMainApplication.class, args);
 	}
@@ -28,6 +32,12 @@ public class KatasMainApplication implements CommandLineRunner {
 	public void run(String... args) {
 		System.out.println("KatasMainApplication START");
 
+		tenPinBowlingKata();
+
+		System.out.println("KatasMainApplication END");
+	}
+
+	private void tenPinBowlingKata() {
 		Round[] rounds = new Round[10];
 		rounds[0] = new RoundImpl(10);
 		rounds[1] = new RoundImpl(10);
@@ -41,7 +51,14 @@ public class KatasMainApplication implements CommandLineRunner {
 		rounds[9] = new LastRoundImpl(10, 10, 10);
 
 		int[] results = tenPinBowlingScoreCalculator.score(rounds);
-
-		System.out.println("KatasMainApplication END");
 	}
+
+	private void potterKata() {
+		// Given
+		int[] books = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4 };
+
+		// When
+		double price = potterPriceCalculator.price(books);
+	}
+
 }

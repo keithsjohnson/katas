@@ -10,8 +10,12 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-public class PotterPriceCalculatorImpl {
+import org.springframework.stereotype.Component;
 
+@Component
+public class PotterPriceCalculatorImpl implements PotterPriceCalculator {
+
+	@Override
 	public double price(int... books) {
 
 		double finalPrice = -1.0D;
