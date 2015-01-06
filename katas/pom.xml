@@ -34,6 +34,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.google.code.tempus-fugit</groupId>
+			<artifactId>tempus-fugit</artifactId>
+			<version>1.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-cypher-compiler-2.1</artifactId>
 			<version>2.1.5</version>
@@ -65,6 +71,7 @@
 	<properties>
 		<start-class>uk.co.keithsjohnson.katas.KatasMainApplication</start-class>
 		<jdk.version>1.8</jdk.version>
+		
 	</properties>
 
 	<build>

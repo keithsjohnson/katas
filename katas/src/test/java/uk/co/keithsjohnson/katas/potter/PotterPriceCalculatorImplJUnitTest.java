@@ -2,13 +2,32 @@ package uk.co.keithsjohnson.katas.potter;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+import com.google.code.tempusfugit.concurrency.ConcurrentTestRunner;
+
+@RunWith(ConcurrentTestRunner.class)
 public class PotterPriceCalculatorImplJUnitTest {
 
+	private static long beforeTime;
+
 	private PotterPriceCalculatorImpl potterPriceCalculatorImpl;
+
+	@BeforeClass
+	public static void beforeClass() {
+		beforeTime = System.currentTimeMillis();
+	}
+
+	@AfterClass
+	public static void afterClass() {
+		System.out.println("PotterPriceCalculatorImplJUnitTest duration = " + (System.currentTimeMillis() - beforeTime));
+
+	}
 
 	@Before
 	public void setUp() {
