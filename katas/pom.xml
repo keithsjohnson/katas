@@ -71,7 +71,7 @@
 	<properties>
 		<start-class>uk.co.keithsjohnson.katas.KatasMainApplication</start-class>
 		<jdk.version>1.8</jdk.version>
-		
+
 	</properties>
 
 	<build>
@@ -82,6 +82,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<parallel>classesAndMethods</parallel>
+    				<useUnlimitedThreads>true</useUnlimitedThreads>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

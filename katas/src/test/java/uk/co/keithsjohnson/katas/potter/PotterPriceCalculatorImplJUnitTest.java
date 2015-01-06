@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -179,7 +178,7 @@ public class PotterPriceCalculatorImplJUnitTest {
 	}
 
 	@Test
-	@Ignore
+	// @Ignore
 	public void shouldCalculatePriceForEdgeCase1() {
 		// Given
 		int[] books = { 0, 0, 1, 1, 2, 2, 3, 4 };
@@ -192,7 +191,7 @@ public class PotterPriceCalculatorImplJUnitTest {
 	}
 
 	@Test
-	@Ignore
+	// @Ignore
 	public void shouldCalculatePriceForEdgeCase2() {
 		// Given
 		int[] books = { 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4 };
