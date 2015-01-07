@@ -1,23 +1,13 @@
 package uk.co.keithsjohnson.katas.calcstats;
 
-import java.util.Arrays;
+public interface CalcStats {
 
-public class CalcStats {
+	public abstract int minimumValue(Integer[] integers);
 
-	public int minimumValue(Integer[] integers) {
-		return Arrays.stream(integers).min(Integer::compare).get();
-	}
+	public abstract int maximumValue(Integer[] integers);
 
-	public int maximumValue(Integer[] integers) {
-		return Arrays.stream(integers).max(Integer::compare).get();
-	}
+	public abstract int count(Integer[] integers);
 
-	public int count(Integer[] integers) {
-		return integers.length;
-	}
-
-	public double averageValue(double[] integers) {
-		return Arrays.stream(integers).average().getAsDouble();
-	}
+	public abstract double averageValue(double[] integers);
 
 }

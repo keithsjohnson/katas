@@ -10,5 +10,6 @@ TheTenPinBowlingKata
 - Add Third Score on last round to Printer.
 - Add Spring Boot and Dependency Injection.
 PotterKata
+CalcStatsKata
 
 

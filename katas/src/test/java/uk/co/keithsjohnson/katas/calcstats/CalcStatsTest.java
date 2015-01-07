@@ -3,12 +3,10 @@ package uk.co.keithsjohnson.katas.calcstats;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import org.springframework.stereotype.Component;
 
-@Component
 public class CalcStatsTest {
 
-	private final CalcStats calcStats = new CalcStats();
+	private final CalcStats calcStats = new CalcStatsImpl();
 
 	@Test
 	public void minimumValue1() {

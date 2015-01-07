@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import uk.co.keithsjohnson.katas.calcstats.CalcStats;
 import uk.co.keithsjohnson.katas.potter.PotterPriceCalculator;
 import uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScoreCalculator;
 import uk.co.keithsjohnson.katas.tenpinbowling.TenPinBowlingScorePrinter;
@@ -24,6 +25,9 @@ public class KatasMainApplication implements CommandLineRunner {
 	@Autowired
 	PotterPriceCalculator potterPriceCalculator;
 
+	@Autowired
+	CalcStats calcStats;
+
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(KatasMainApplication.class, args);
 	}
@@ -33,6 +37,10 @@ public class KatasMainApplication implements CommandLineRunner {
 		System.out.println("KatasMainApplication START");
 
 		tenPinBowlingKata();
+
+		potterKata();
+
+		calcStatsKata();
 
 		System.out.println("KatasMainApplication END");
 	}
@@ -59,6 +67,17 @@ public class KatasMainApplication implements CommandLineRunner {
 
 		// When
 		double price = potterPriceCalculator.price(books);
+	}
+
+	private void calcStatsKata() {
+		int value1 = calcStats.minimumValue(new Integer[] { 6, 9, 15, -2, 92, 11 });
+		int value2 = calcStats.minimumValue(new Integer[] { 6, 9, 15, 1, 92, 11 });
+		int value3 = calcStats.maximumValue(new Integer[] { 6, 9, 15, -2, 92, 11 });
+		int value4 = calcStats.maximumValue(new Integer[] { 6, 9, 15, 1, 12, 11 });
+		int count1 = calcStats.count(new Integer[] { 6, 9, 15, -2, 92, 11 });
+		int count2 = calcStats.count(new Integer[] { 6, 9, 15 });
+		double average1 = calcStats.averageValue(new double[] { 6D, 9D, 15D, -2D, 92D, 11D });
+		double average2 = calcStats.averageValue(new double[] { 6, 9, 15 });
 	}
 
 }
