@@ -23,6 +23,6 @@ public class RomanNumeralsConverterImplJUnitTest {
 		String result = testSubject.convert(value);
 
 		// Then
-		assertEquals("1", result);
+		assertEquals("I", result);
 	}
 }
