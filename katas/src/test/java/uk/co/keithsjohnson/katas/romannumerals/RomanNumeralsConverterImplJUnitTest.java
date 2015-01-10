@@ -25,4 +25,28 @@ public class RomanNumeralsConverterImplJUnitTest {
 		// Then
 		assertEquals("I", result);
 	}
+
+	@Test
+	public void shouldConvert2() {
+		// Given
+		int value = 2;
+
+		// When
+		String result = testSubject.convert(value);
+
+		// Then
+		assertEquals("II", result);
+	}
+
+	@Test
+	public void shouldConvert3() {
+		// Given
+		int value = 3;
+
+		// When
+		String result = testSubject.convert(value);
+
+		// Then
+		assertEquals("III", result);
+	}
 }
